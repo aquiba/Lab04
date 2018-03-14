@@ -23,7 +23,7 @@ Transaction::Transaction() {
 // This is the copy constructor Transaction() and it takes 
 // another Transaction object as input to create a deep copy of 
 // a transaction.
-Transaction::Transaction(const Transaction&) {
+Transaction::Transaction(const Transaction& rhs) {
         this->item = rhs.item;
         this->media = rhs.media;
         this->transaction = rhs.transaction;
