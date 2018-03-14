@@ -21,7 +21,7 @@ public:
         virtual ~Transaction(); // destructor
 
         virtual bool setData(string, Inventory*, Customer*);
-        virtual void display();
+        virtual void display() const;
 
         virtual Transaction* create();
 
