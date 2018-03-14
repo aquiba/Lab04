@@ -13,7 +13,7 @@
 // ---------- Borrow() ----------
 // This is the default Borrow() constructor, and it sets
 // the Transaction type string to "Borrow".
-Borrow::Borrow() {
+Borrow::Borrow() : Transaction() {
         this->transaction = "Borrow";
 } // end default constructor Borrow()
 
