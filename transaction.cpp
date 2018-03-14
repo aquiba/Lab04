@@ -50,7 +50,7 @@ bool Transaction::setData(string setMedia, Inventory* setItem,
 // This is the display() function, and it displays the
 // media and transaction type of a Transaction object.
 void Transaction::display() const {
-        cout << media << " " << transaction << ": ";
+        cout << this->media << " " << this->transaction << ": ";
 } // end function display()
 
 // ---------- create() ----------
