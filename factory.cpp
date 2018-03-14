@@ -66,7 +66,7 @@ Factory::~Factory() {
 } // end destructor ~Factory()
 
 // ---------- hash() ----------
-// This is the function Hash() and it computes
+// This is the function hash() and it computes
 // the integer value of a specific character.
 int Factory::hash(char parse) const {
         if( parse < 'a' ) {
