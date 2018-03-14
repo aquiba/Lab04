@@ -21,7 +21,7 @@ Borrow::Borrow() : Transaction() {
 // This is the copy constructor Transaction() and it takes
 // another Borrow object as input to create a deep copy of
 // a borrow transaction.
-Borrow::Borrow(const Borrow& rhs:) {
+Borrow::Borrow(const Borrow& rhs) {
         this->transaction = rhs.transaction;
         this->media = rhs.media;
         this->item = rhs.item;
