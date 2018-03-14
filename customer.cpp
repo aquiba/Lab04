@@ -38,7 +38,7 @@ Customer::Customer(const Customer& rhs) {
 } // end copy constructor Customer()
 
 // ---------- ~Customer() ----------
-// This is the destructor ~Customer() and it destros the
+// This is the destructor ~Customer() and it destroys the
 // dynamically allocated array.
 Customer::~Customer() {
         for( int i = 0; i < (int)transactionHistory.size(); i++ ) {
