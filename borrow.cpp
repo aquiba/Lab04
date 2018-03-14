@@ -18,7 +18,7 @@ Borrow::Borrow() : Transaction() {
 } // end default constructor Borrow()
 
 // ---------- Borrow() ----------
-// This is the copy constructor Transaction() and it takes
+// This is the copy constructor Borrow() and it takes
 // another Borrow object as input to create a deep copy of
 // a borrow transaction.
 Borrow::Borrow(const Borrow& rhs) {
