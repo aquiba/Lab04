@@ -8,6 +8,8 @@
 * Lab 4: Final Project --customer.cpp--
 */
 
+#include "customer.h"
+
 // ---------- Customer() ----------
 // This is the default constructor Customer(), and
 // sets a Customer object to their default empty values.
