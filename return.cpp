@@ -47,7 +47,7 @@ bool Return::setData(string setMedia, Inventory* setItem,
 
                 if( media != "" ) { // if media type is not empty
                         // increase the number of copies of this item
-                        this->item->decreaseCopies();
+                        this->item->increaseCopies();
                 } // end if
         } // end if
         return true;
