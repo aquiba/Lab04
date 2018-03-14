@@ -43,6 +43,7 @@ Customer::Customer(const Customer& rhs) {
 Customer::~Customer() {
         for( int i = 0; i < (int)transactionHistory.size(); i++ ) {
                 delete transactionHistory[i];
+                transactionHistory[i] = NULL;
         } // end for
 } // end destructor ~Customer()
 
