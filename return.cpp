@@ -63,6 +63,6 @@ void Return::display() const {
 // ---------- create() ----------
 // This is the create() function, and it creates a new
 // Return object for the Factory class to use.
-Transaction* Transaction::create() {
+Transaction* Return::create() {
         return new Return();
 } // end function create()
