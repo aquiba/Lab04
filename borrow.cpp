@@ -8,6 +8,8 @@
 * Lab 4: Final Project --borrow.cpp--
 */
 
+#include "borrow.h"
+
 // ---------- Borrow() ----------
 // This is the default Borrow() constructor, and it sets
 // the Transaction type string to "Borrow".
