@@ -23,6 +23,7 @@ void Classic::setData(istream &infile) {
         title.resize(18);
     }
     infile.get();
+    getline(infile, director, ',');
     if (title.size() > 22) {
         title.resize(22);
     }
