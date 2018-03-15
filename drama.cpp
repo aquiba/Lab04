@@ -13,22 +13,21 @@ Drama::~Drama() {}
 
 void Drama::setData(istream &infile) {
     infile.get();
-    getline(infile, director, ',');
-    if (director.size() > 18) {
-        title.resize(18);
-    }
-    infile.get();
-    if (title.size() > 22) {
-        title.resize(22);
-    }
-    infile.get();
-    infile >> year;
+	getline(infile, director, ',');
+
+	infile.get();
+	getline(infile, title, ',');
+
+	infile.get();
+	infile >> year;
 }
 
 void Drama::setData2(istream &infile) {
     infile.get();
-    getline(infile, title, ',');
-    infile >> year;
+	getline(infile, director, ',');
+
+	infile.get();
+	getline(infile, title, ',');
 }
 
 void Drama::display() const {
