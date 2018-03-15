@@ -18,6 +18,7 @@ void Comedy::setData(istream &infile) {
         title.resize(18);
     }
     infile.get();
+    getline(infile, title, ',');
     if (title.size() > 22) {
         title.resize(22);
     }
