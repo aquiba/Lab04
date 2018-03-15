@@ -14,12 +14,15 @@ BinTree::BinTree(const BinTree &){
 }
 
 BinTree::~BinTree(){
-    makeEmpty();
+    if( root != NULL ) {
+        makeEmpty();
+    }
 }
 
 bool BinTree::insert(Inventory *insertMovie, const int copies){
-    Node* tempNode = new Node; // Creates copy
+    Node* tempNode = new Node(); // Creates copy
     tempNode->movie = insertMovie;
+    tempNode->movie->setMaxCopies(copies);
     insertMovie = NULL; // Deletes node to avoid memleaks
     tempNode->left = NULL;
     tempNode->right = NULL;
@@ -32,15 +35,12 @@ bool BinTree::insert(Inventory *insertMovie, const int copies){
             if (*tempNode->movie == *current->movie) { // Found the same node
                 delete tempNode; // Deletes, already inserted
                 tempNode = NULL;
-                for (int i = 0; i < copies; i++) { //Increase how many copies
-                    current->movie->increaseCopies();
-                }
-                return true;
+                return false;
             }
             else if (*tempNode->movie < *current->movie) { // Searches left for spot
                 if (current->left == NULL) { // Found an empty place
-                    inserted = true; // Allows the while loop to end
                     current->left = tempNode; // inserts node.
+                    inserted = true; // Allows the while loop to end
                 }
                 else { // Continues down left
                     current = current->left;
@@ -53,8 +53,8 @@ bool BinTree::insert(Inventory *insertMovie, const int copies){
                                               // That if it's not more, 
                                               // and if it hasnt been found
                                               // it will always go right.
-                    inserted = true;
                     current->right = tempNode;
+                    inserted = true;                 
                 }
                 else { // Continues down right
                     current = current->right;
