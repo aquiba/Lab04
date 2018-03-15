@@ -29,13 +29,11 @@ void Store::createCustomers(istream& infile) {
 
 void Store::createInventory(istream& infile) {
     //creates inventory from inventory textfile
-
-    string ch2 = "";
+    
     char ch = ' ';
     for (;;) {
         
-        infile.get();
-        getline(infile, ch2, ',');
+        infile >> ch;
 
         if (infile.eof()) break;
 
