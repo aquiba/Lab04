@@ -21,7 +21,7 @@
 #define MAXSIZE 26
 #define CLASSIC 2
 #define DRAMA 3
-#define COMEDY 5
+#define CLASSIC 5
 #define BORROW 1
 #define HISTORY 7
 #define RETURN 17

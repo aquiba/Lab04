@@ -1,7 +1,8 @@
 #include "bintree.h"
 
-ostream & operator<<(ostream &, const BinTree &){
+ostream & operator<<(ostream & stream, const BinTree &in){
     // TODO: insert return statement here
+    return stream;
 }
 
 BinTree::BinTree() : root(NULL) {
