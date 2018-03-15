@@ -95,7 +95,7 @@ Inventory* Factory::createMovie(char parse, istream& infile) {
         int subscript = hash(parse);
 
         if( storeInventory[subscript] == NULL ) {
-                getLine(infile, temp, '\n');
+                getline(infile, temp, '\n');
                 return NULL;
         } else {
                 return this->storeInventory[subscript]->create();
@@ -113,7 +113,7 @@ Transaction* Factory::createTransaction(char parse, istream& infile) {
         int subscript = hash(parse);
 
         if( transactionInventory[subscript] == NULL ) {
-                getLine(infile, temp, '\n');
+                getline(infile, temp, '\n');
                 return NULL;
         } else {
                 return this->transactionInventory[subscript]->create();

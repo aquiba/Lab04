@@ -28,29 +28,35 @@ void Store::createCustomers(istream& infile) {
 }
 
 void Store::createInventory(istream& infile) {
-    char ch = ' ';
+    //creates inventory from inventory textfile
 
+    string ch2 = "";
+    char ch = ' ';
     for (;;) {
-        infile >> ch;
+        
+        infile.get();
+        getline(infile, ch2, ',');
+
         if (infile.eof()) break;
 
-        Inventory *newMovie = factory.createMovie(ch, infile);
+        Inventory * addedMovie = factory.createMovie(ch, infile);
 
-        if (newMovie != NULL) {
-            newMovie->setData(infile);
+        if (addedMovie != NULL) {
+            addedMovie->setData(infile);
 
             bool inserted = inventory[factory.convertToSubscript(ch)]
-                .insert(newMovie, 10);
+                .insert(addedMovie, 10);
 
             if (!inserted) {
-                delete newMovie;
-                cout << "Insertion Fail" << endl;
-            }
-        }
-        newMovie = NULL;
-        delete newMovie;
-    }
-}
+                delete addedMovie;
+                //addedMovie = NULL;
+                cout << "Not Inserted" << endl;
+            }//end if not inserted
+        }//end if
+        addedMovie = NULL;
+        delete addedMovie;
+    }//end for
+}//end createInventory
 void Store::processTransactions(istream& infile){
     char actCh = ' ';
     char movCh = ' ';
@@ -74,10 +80,10 @@ void Store::processTransactions(istream& infile){
         else if (infile.get() == EOL)
             actCh = ' ';
         else {
-            Transaction * processedTran = factory
+            Transaction * procTran = factory
                 .createTransaction(actCh, infile);
 
-            if (processedTran != NULL) { //no action code
+            if (procTran != NULL) { //no action code
                 infile >> custID;
 
                 if (infile.eof()) break;
@@ -85,7 +91,7 @@ void Store::processTransactions(istream& infile){
                 if (lookUpCustomer(custID)) { //customer exists
                     tempCust = &customers[custID];
 
-                    bool isHistory = processedTran->
+                    bool isHistory = procTran->
                         setData(mediaType, itemLoc, tempCust);
 
                     if (infile.get() != EOL && isHistory) {
@@ -117,24 +123,24 @@ void Store::processTransactions(istream& infile){
                                 delete tempItem;
                                 tempItem = NULL;
 
-                                bool found2 = processedTran->
+                                bool found2 = procTran->
                                     setData(mediaType, itemLoc, tempCust);
 
                                 if ((found && found2) && mediaType != "") {
                                     customers[custID]
-                                        .addTransaction(*processedTran);
+                                        .addTransaction(*procTran);
 
                                 }
-                                delete processedTran;
-                                processedTran = NULL;
+                                delete procTran;
+                                procTran = NULL;
                             }
                             else {
                                 cout << "ERROR: " << movCh
                                     << " not Found!" << endl;
 
-                                if (processedTran != NULL)
-                                    delete processedTran;
-                                processedTran = NULL;
+                                if (procTran != NULL)
+                                    delete procTran;
+                                procTran = NULL;
                             }//end if
 
                             string temp;
@@ -149,34 +155,34 @@ void Store::processTransactions(istream& infile){
 
                             cout << "ERROR: Invalid Code " << medCh << endl;
 
-                            if (processedTran != NULL)
-                                delete processedTran;
-                            processedTran = NULL;
+                            if (procTran != NULL)
+                                delete procTran;
+                            procTran = NULL;
                         }//end if not media type
                     }
                     else {
-                        if (processedTran != NULL)
-                            delete processedTran;
-                        processedTran = NULL;
+                        if (procTran != NULL)
+                            delete procTran;
+                        procTran = NULL;
                     }//end if not EOL and isHistory
                 }
                 else {
                     cout << "Error: Invalid Customer ID " << custID << endl;
 
-                    if (processedTran != NULL)
-                        delete processedTran;
-                    processedTran = NULL;
+                    if (procTran != NULL)
+                        delete procTran;
+                    procTran = NULL;
 
                     string temp;
                     getline(infile, temp, EOL);
                 }//end if customer exists
             }
             else {
-                cout << "ERROR: Invalid Action Code " << actCh << endl;
+                cout << "ERROR: Invalid Action type " << actCh << endl;
 
-                if (processedTran != NULL)
-                    delete processedTran;
-                processedTran = NULL;
+                if (procTran != NULL)
+                    delete procTran;
+                procTran = NULL;
             }//end if no action code
         }//end process infile if
 

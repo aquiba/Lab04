@@ -20,7 +20,7 @@ int main() {
         ifstream transactions("data4commands.txt");
 
         // if any of the text files are not found
-        if( (!manager) || (!customers) || (!transactions) ) {
+        if( ( (!customers) || (!transactions) )) {
                 cout << "File not found." << endl;
                 getchar();
                 return 1;

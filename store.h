@@ -8,8 +8,8 @@
 * Lab 4: Final Project --store.h--
 */
 
-#ifndef STORE_H
-#define STORE_H
+#ifndef _STORE_H
+#define _STORE_H
 #include "customer.h"
 #include "factory.h"
 #include "bintree.h"

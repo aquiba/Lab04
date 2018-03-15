@@ -42,8 +42,7 @@ Customer::Customer(const Customer& rhs) {
 // dynamically allocated array.
 Customer::~Customer() {
         for( int i = 0; i < (int)transactionHistory.size(); i++ ) {
-                delete transactionHistory[i];
-                transactionHistory[i] = NULL;
+            transactionHistory.clear();
         } // end for
 } // end destructor ~Customer()
 
@@ -79,7 +78,7 @@ void Customer::displayCustomerHistory() const {
 
         if( histSize > 0 ) { // if history size greater than 0
                 // loop through and display all of transaction history vector
-                for( int i = 0; i < histSize < i++ ) {
+            for (int i = 0; i < histSize; i++) {
                         this->transactionHistory[i].display();
                         this->transactionHistory[i].getItem()->display();
                 } // end for
@@ -94,7 +93,7 @@ void Customer::displayCustomerHistory() const {
 // This is the function addTransaction() and it adds a 
 // Transaction to the Transaction history of a Customer.
 void Customer::addTransaction(Transaction transaction) {
-        this->transactionHistory.push_back(transaction;
+        this->transactionHistory.push_back(transaction);
 } // end function addTransaction()
 
 // ---------- display() ----------

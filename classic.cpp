@@ -23,22 +23,28 @@ void Classic::setData(istream &infile) {
         title.resize(18);
     }
     infile.get();
+    getline(infile, director, ',');
     if (title.size() > 22) {
         title.resize(22);
     }
     infile.get();
     infile >> actorFirstName >> actorLastName;
     infile >> month >> year;
+
 }
 
 void Classic::setData2(istream &infile) {
-    infile >> month >> year >> actorFirstName >> actorLastName;
+    infile >> month;
+    infile >> year;
+    infile >> actorFirstName;
+    infile >> actorLastName;
 }
 
 void Classic::display() const {
-    cout << genre << " " << left << " " << setw(22);
+    cout << genre << " " << left << " ";
     cout << " " << director << " " << title << " " << month << " ";
     cout << year << " " << actorFirstName << " " << actorLastName << endl;
+    cout << endl;
 }
 
 void Classic::displayHeader() const {
