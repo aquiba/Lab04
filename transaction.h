@@ -2,7 +2,7 @@
 *
 * Professor Min Chen
 * Date Created: 28 February 2018
-* Last Modified: 28 February 2018
+* Last Modified: 14 March 2018
 * CSS343B
 *
 * Lab 4: Final Project --transaction.h--
@@ -21,7 +21,7 @@ public:
         virtual ~Transaction(); // destructor
 
         virtual bool setData(string, Inventory*, Customer*);
-        virtual void display();
+        virtual void display() const;
 
         virtual Transaction* create();
 

@@ -2,7 +2,7 @@
 *
 * Professor Min Chen
 * Date Created: 28 February 2018
-* Last Modified: 28 February 2018
+* Last Modified: 14 March 2018
 * CSS343B
 *
 * Lab 4: Final Project --factory.h--
@@ -44,7 +44,7 @@ public:
 private:
         Inventory* storeInventory[MAXSIZE];
         Transaction* transactionInventory[MAXSIZE];
-        string mediaType[MAXITEMS];
+        string mediaType[MAXSIZE];
 
         int hash(char) const; // hash table!
         void initInventory();

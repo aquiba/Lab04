@@ -2,7 +2,7 @@
 *
 * Professor Min Chen
 * Date Created: 28 February 2018
-* Last Modified: 28 February 2018
+* Last Modified: 14 March 2018
 * CSS343B
 *
 * Lab 4: Final Project --customer.h--
@@ -29,7 +29,7 @@ public:
         void setData(istream&);
         void displayCustomerHistory() const;
         void addTransaction(Transaction);
-        virtual void display();
+        virtual void display() const;
         int getCustomerID() const;
         string getFirstName() const;
         string getLastName() const;
